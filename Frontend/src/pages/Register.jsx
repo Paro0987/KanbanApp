@@ -29,6 +29,7 @@ const Register = () => {
             }
 
             if (response.ok && res.message === "User registered successfully") {
+                alert("User registered successfully");
                 navigate("/login");
             } else {
                 setError(res.message || "An error occurred");
