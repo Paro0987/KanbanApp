@@ -40,3 +40,34 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Dashboard Heading */
+.dashboard h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Task Container Grid */
+.task-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* Task Card Styles */
+.task-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Task Card Title */
+.task-card h3 {
+  margin-top: 0;
+}
+
+/* Task Card Status */
+.task-card p {
+  margin: 5px 0 0 0;
+}

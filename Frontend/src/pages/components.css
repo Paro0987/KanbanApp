@@ -1,0 +1,316 @@
+/* General */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+#root {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 30px;
+}
+
+.logout-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+/* Dashboard Layout */
+.dashboard {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+.content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+/* Dashboard.css */
+
+  
+  .dashboard-content {
+    display: flex;
+    width: 100%;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .create-task {
+    margin-bottom: 20px;
+  }
+  
+  .task-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+  }
+  
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.sidebar h2 {
+    margin-top: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 10px 0;
+}
+
+.sidebar-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+}
+
+.sidebar-link:hover {
+    background-color: #d0d0d0;
+}
+
+.sidebar-button {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 18px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+}
+
+.sidebar-button:hover {
+    background-color: #d0d0d0;
+}
+
+
+/* Create Task */
+.create-task {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.create-task input, .create-task select {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.create-task-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+}
+
+/* Main Page */
+.main-page {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.task-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.task-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: calc(33.333% - 20px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.task-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.edit-button, .delete-button {
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.edit-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+}
+/* General Styles for Login and Register Pages */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.image-container {
+    flex: 1;
+    background: url('https://elapseit.com/static/14090c1aff5252dca435a2375e48a80e/Kanban_visualize_process-elapseit.svg') no-repeat center center;
+    background-size: cover;
+    /* Ensure the image container is square */
+    min-width: 300px;
+    aspect-ratio: 2/1;
+    
+}
+
+.form-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.form-wrapper {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    /* Ensure the form wrapper is square */
+    aspect-ratio: 4 / 1.5;
+}
+
+h1 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    color: rgb(18, 241, 10);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #88a045;
+    color: white;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1200px) {
+    .sidebar {
+        width: 220px;
+    }
+
+    .task-card {
+        width: calc(50% - 20px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .task-card {
+        width: calc(100% - 20px);
+    }
+}

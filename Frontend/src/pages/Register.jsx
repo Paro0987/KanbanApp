@@ -1,34 +1,26 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import './components.css';
 
 const Register = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState(""); 
-    const [role, setRole] = useState("user"); // Default role as "user"
-    const [error, setError] = useState(""); // State for error messages
+    const [role, setRole] = useState("user");
+    const [error, setError] = useState("");
     const navigate = useNavigate();
 
     const handleSubmit = async () => {
-        const payload = {
-            name,
-            email,
-            password,
-            role
-        };
+        const payload = { name, email, password, role };
 
         try {
             const response = await fetch("https://kanbanapp-aj2e.onrender.com/user/register", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(payload)
             });
 
             const text = await response.text();
-            
-            // Check if response is JSON
             let res;
             try {
                 res = JSON.parse(text);
@@ -48,53 +40,58 @@ const Register = () => {
     };
 
     return (
-        <div>
-            <h1>Register</h1>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-            <form>
-                <div>
-                    <label htmlFor="name">Name:</label>
-                    <input
-                        id="name"
-                        type="text"
-                        placeholder="Enter name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
+        <div className="container">
+            <div className="image-container"></div>
+            <div className="form-container">
+                <div className="form-wrapper">
+                    <h1>Register</h1>
+                    {error && <p className="error-message">{error}</p>}
+                    <form>
+                        <div>
+                            <label htmlFor="name">Name:</label>
+                            <input
+                                id="name"
+                                type="text"
+                                placeholder="Enter name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="email">Email:</label>
+                            <input
+                                id="email"
+                                type="email"
+                                placeholder="Enter email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="password">Password:</label>
+                            <input
+                                id="password"
+                                type="password"
+                                placeholder="Enter password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="role">Role:</label>
+                            <select
+                                id="role"
+                                value={role}
+                                onChange={(e) => setRole(e.target.value)}
+                            >
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+                        <button type="button" onClick={handleSubmit}>Register</button>
+                    </form>
                 </div>
-                <div>
-                    <label htmlFor="email">Email:</label>
-                    <input
-                        id="email"
-                        type="email"
-                        placeholder="Enter email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="password">Password:</label>
-                    <input
-                        id="password"
-                        type="password"
-                        placeholder="Enter password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="role">Role:</label>
-                    <select
-                        id="role"
-                        value={role}
-                        onChange={(e) => setRole(e.target.value)}
-                    >
-                        <option value="user">User</option>
-                        <option value="admin">Admin</option>
-                    </select>
-                </div>
-                <button type="button" onClick={handleSubmit}>Register</button>
-            </form>
+            </div>
         </div>
     );
 };
