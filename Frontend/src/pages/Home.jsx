@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import TaskCard from './TaskCard';
+import Sidebar from './Sidebar';
 import './components.css';
 
 const Home = ({ tasks, updateTask, deleteTask }) => {
-    const [filteredTasks, setFilteredTasks] = useState(tasks);
+    const [filteredTasks, setFilteredTasks] = useState([]);
 
     const filterByStatus = (status) => {
+        console.log('Filtering by status:', status); // Debug log
         if (status === '') {
             setFilteredTasks(tasks); // Show all tasks
         } else {
@@ -14,12 +16,14 @@ const Home = ({ tasks, updateTask, deleteTask }) => {
     };
 
     useEffect(() => {
+        console.log('Tasks data:', tasks); // Debug log
+        // Initialize filtered tasks with all tasks
         setFilteredTasks(tasks);
     }, [tasks]);
 
     return (
         <div className="main-page">
-            <h2>Tasks</h2>
+            <Sidebar filterByStatus={filterByStatus} />
             <div className="task-list">
                 {filteredTasks.map(task => (
                     <TaskCard key={task._id} task={task} onEdit={updateTask} onDelete={deleteTask} />

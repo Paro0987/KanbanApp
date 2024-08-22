@@ -22,20 +22,25 @@ taskRoute.post("/create-task",Authorize(["user"]),async(req,res)=>{
 
 })
 
-taskRoute.get("/get-tasks",Authorize(["user"]),async(req,res)=>{
-   const userId=req.user.id
-   
-    try {
-        const task=await TaskModel.find({userId});
-        res.status(202).json({
-            message:"Task of user retrieved successfully",
-            task
-        }) 
-    } catch (error) {
-        res.status(404).send(`Error while retrieving tasks ${error}`)
-    }
+taskRoute.get("/get-tasks", Authorize(["user"]), async (req, res) => {
+    const userId = req.user.id;
+    const { status } = req.query;  // Capture status from query parameters
 
-})
+    try {
+        const filter = { userId };
+        if (status) {
+            filter.status = status; // Add status to filter if it's provided
+        }
+
+        const task = await TaskModel.find(filter);
+        res.status(202).json({
+            message: "Task of user retrieved successfully",
+            task
+        });
+    } catch (error) {
+        res.status(404).send(`Error while retrieving tasks ${error}`);
+    }
+});
 
 taskRoute.get("/get-Alltasks",Authorize(["admin"]),async(req,res)=>{
     

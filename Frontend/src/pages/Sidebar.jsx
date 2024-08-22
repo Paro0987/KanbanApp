@@ -4,7 +4,6 @@ import './components.css'; // Ensure this file contains the necessary styles
 const Sidebar = ({ filterByStatus }) => {
     // Define the statuses and other options
     const options = [
-        { label: 'Create Task', status: '' }, // Empty status for create task
         { label: 'All Tasks', status: '' }, // Empty status for all tasks
         { label: 'Pending', status: 'Pending' },
         { label: 'In Progress', status: 'In Progress' },
@@ -16,7 +15,7 @@ const Sidebar = ({ filterByStatus }) => {
             <h2>Filter Tasks</h2>
             <ul>
                 {options.map((option) => (
-                    <li key={option.label}>
+                    <li key={option.status}>
                         <button
                             onClick={() => filterByStatus(option.status)}
                             className="sidebar-button"

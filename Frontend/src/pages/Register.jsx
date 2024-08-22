@@ -48,7 +48,7 @@ const Register = () => {
                     {error && <p className="error-message">{error}</p>}
                     <form>
                         <div>
-                            <label htmlFor="name">Name:</label>
+                           
                             <input
                                 id="name"
                                 type="text"
@@ -58,7 +58,7 @@ const Register = () => {
                             />
                         </div>
                         <div>
-                            <label htmlFor="email">Email:</label>
+                            
                             <input
                                 id="email"
                                 type="email"
@@ -68,7 +68,7 @@ const Register = () => {
                             />
                         </div>
                         <div>
-                            <label htmlFor="password">Password:</label>
+                            
                             <input
                                 id="password"
                                 type="password"
@@ -78,7 +78,7 @@ const Register = () => {
                             />
                         </div>
                         <div>
-                            <label htmlFor="role">Role:</label>
+                            
                             <select
                                 id="role"
                                 value={role}

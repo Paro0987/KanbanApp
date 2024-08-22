@@ -3,7 +3,7 @@ import './components.css';
 
 const TaskCard = ({ task, onUpdateTask, onDeleteTask }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [editedTask, setEditedTask] = useState(task);
+  const [editedTask, setEditedTask] = useState({ ...task }); // Ensure `editedTask` is a complete object
 
   const handleSave = () => {
     onUpdateTask(task._id, editedTask);
@@ -18,6 +18,12 @@ const TaskCard = ({ task, onUpdateTask, onDeleteTask }) => {
             type="text"
             value={editedTask.title}
             onChange={(e) => setEditedTask({ ...editedTask, title: e.target.value })}
+          />
+          <input
+            type="text"
+            placeholder="Task Description"
+            value={editedTask.description || ''} // Default to empty string if undefined
+            onChange={(e) => setEditedTask({ ...editedTask, description: e.target.value })}
           />
           <select
             value={editedTask.status}
@@ -39,6 +45,7 @@ const TaskCard = ({ task, onUpdateTask, onDeleteTask }) => {
       ) : (
         <>
           <h4>{task.title}</h4>
+          <p>{task.description}</p> {/* Display description */}
           <p>Status: {task.status}</p>
           <div className="task-actions">
             <button className="edit-button" onClick={() => setIsEditing(true)}>
